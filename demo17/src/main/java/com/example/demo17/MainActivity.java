@@ -28,16 +28,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(View view) throws ExecutionException, InterruptedException {
+        //1、获取用户输入的字符串
         String name = editTextname.getText().toString();
         String pass = editTextpass.getText().toString();
+        //2、打包用户输入的字符串
         Map<String,String> map = new HashMap<>();
         map.put("username",name);
         map.put("userpass",pass);
+        //3、提交用户输入的字符串
         String url = "http://172.18.85.254:8080/auction/api/users/login";
         String str = OkHttpUtil.postRequest(url,map);
         if (str.equals("1")){
-            //Intent intent = new Intent()
             Toast.makeText(this,"登录成功",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this,IndexActivity.class);
+            startActivity(intent);
         }else {
             Toast.makeText(this,"登录失败",Toast.LENGTH_LONG).show();
         }

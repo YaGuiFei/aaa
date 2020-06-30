@@ -12,7 +12,7 @@ public class IndexActivity extends FragmentActivity implements Callbacks{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
     }
-
+//
     @Override
     public void onItemSelected(int id, Bundle bundle) {
         Intent intent;
